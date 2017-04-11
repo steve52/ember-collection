@@ -46,9 +46,7 @@ export default Ember.Component.extend({
     //   2. Set a property on `this` that is both not in the
     //      initial attrs hash and not on the prototype.
     this._super();
-  },
 
-  didInitAttrs() {
     let buffer = this.getAttr('buffer'); // getIntAttr('buffer', 5)
     this._buffer = (typeof buffer === 'number') ? buffer : 5;
     this._scrollLeft = this.getAttr('scroll-left') | 0;
@@ -166,6 +164,7 @@ export default Ember.Component.extend({
         set(cell, 'style', style);
         set(cell, 'hidden', false);
         set(cell, 'key', itemKey);
+        set(cell, 'index', itemIndex);
         cellMap[itemKey] = cell;
       } else {
         newItems.push(itemIndex);
